@@ -1,65 +1,96 @@
 # ResearchOps HackPack
+ResearchOps HackPack is a practical toolkit for organizing product, UX, and service-design research. It provides reusable templates and runbooks for setting up projects, coordinating the work, and keeping research materials organized.
 
-This is a template to get started fast on ux researchOps in an organization.
+I developed it through years of work in federal government contracting, bringing together practices I used and adapted there with my own approaches to organizing research. The toolkit gives individuals and teams a starting structure they can adapt to their tools and ways of working.
 
-It's inspired by work produced at the [VA](https://depo-platform-documentation.scrollhelp.site/research-design/) and my own notes and processes accumulated over the years. (Big thanks to [Dave Pickett](https://github.com/davidmpickett) for his concept of using git issue template "runbooks" to organize product management tasks.)
+## Get Started
+You can use the templates yourself or ask a local coding agent to copy and organize them. You supply the research questions, choose the methods, and write the research content. The included skills handle file setup.
 
-This document is to be used by teams that are responsible for UX design and research, and it may be shared with stakeholders to ensure that everyone has a clear understanding of how UX research is managed within the organization.
+### With Your Agent
+![Set up with your agent](https://img.shields.io/badge/Set_up-with_your_agent-blue)
 
-The purpose of a researchOps repo is to provide a clear and concise overview of the key elements of ux operations, including the roles and responsibilities of different team members, the tools and processes used to manage UX activities, any relevant policies or guidelines that must be followed, and to operationalize those standard processes through smart use of Github project management features, and markdown. By providing this information in a central location, the README can help to ensure that everyone involved in UX operations has the information they need to effectively collaborate and contribute to the success of the product or service.
+Copy this prompt into an agent that can read and write local files and run Git. The badge is a visual marker; the prompt below is the starting point.
 
-## Project Structure
+```text
+Help me set up ResearchOps HackPack for my research.
 
-- **Product:** the product that your research focuses on.
-    - **Project:** a specific area of research you are undertaking on that product, usually this should be organized around a feature epic.
-        - **Trial:** the individual iteration of work undertaken as part of a research project. Let's say you want to send out a survey to a large number of users, then interview a subset of those users, then follow up with those users for a second round of interviews to drilldown further, and lastly performing user testing after drafting a prototype: each of these would be it's own trial, organized under a single Project.
-            - **Session:**  the individual execution of the trial: IE a specific interview, user test, or card sort session.
+Clone https://github.com/jcklpe/researchOps-hackpack.git into a new local folder. Ask me where to put it if I have not specified a destination. Do not overwrite or remove any existing files. If I already have a checkout, verify it and use it instead of cloning over it.
 
-## Research Workflow
-```mermaid
-graph TD
-    Start([Start a new research project]) --> RPR[/Research Project Runbook issue/]
-    RPR --create--> RE[/Research Epic/]
-    RPR --create--> GIT[project folder in git repo]
-    RPR --create--> PB[/Project Brief issue/]
-    %%E -.->C
-    PB --create--> CD[cloud doc research editing folder]
-    CD --write--> PBD[[Project Brief draft]]
-    PBD --review--> H{Team approval?}
-    H --No--> PBD
-    H --Yes--> K{Stakeholder approval?}
-    K --No--> H
-    K --Yes--> L[[Final Project Brief]]
-    L -.-> GIT
-    L --> M([Start new research trial])
-    M --> N[/Research Trial Runbook issue/]
-    N --create--> O[/Trial Brief and Plan issue/]
-    N --create--> RS[/Recruitment and Scheduling issue/]
-    N --create--> RSI[/Research Sessions issue/]
-    N --create--> R[/Synthesis and Report issue/]
-    O --create--> S[cloud doc research editing folder]
-    S --write--> TBD[[Trial Brief draft]]
-    TBD --review--> TTA{Team approval?}
-    TTA --No--> TBD
-    TTA --Yes--> TSA{Stakeholder approval?}
-    TSA --No--> TTA
-    TSA --Yes--> FTB[[Final Trial Brief]]
-    FTB-.-> GIT
-    FTB --> RS
-    RS --> RDT[[Recruitment tracker]]
-    RDT -.-> GIT
-    RS --> SP[Schedule particpants]
-    SP --> RSI
-    RSI --conduct--> CS[Sessions]
-    CS -.-> RDT
-    CS --> FN[[Field Notes and Session Artifacts]]
-    FN -.-> GIT
-    CS --> R
-    R --create--> SD[[Synthesis artifacts]]
-    SD -.-> R
-    SD --write--> TRD[[Trial Report doc]]
-    TRD -.-> GIT
-    TRD --> PTF[Present to Team for feedback]
-    PTF --schedule--> SHP[Stakeholder presentation]
-    SHP --> END([Stakeholder research trial sign off])
+Read README.md and AGENTS.md in that checkout, then follow skills/setup-research-repo/SKILL.md. Ask me where I want my actual research work to live and prepare that workspace only. Do not create a project, trial, or session yet, and do not fill in research questions or plans.
+
+Show me what is ready, where the blank templates and fictional examples are, and how to request a project next. Do not commit, push, publish, install integrations, or change remotes.
 ```
+
+The skill files travel with the repository. Your agent can read them directly; no global skill installation or specific agent application is required. If it cannot run Git or access local files, use the manual path and give it access to the downloaded files through your usual tools.
+
+### By Hand
+With Git installed, run these commands from the directory where you want the toolkit. Choose a different destination name if `researchOps-hackpack` already exists.
+
+```sh
+git clone https://github.com/jcklpe/researchOps-hackpack.git
+cd researchOps-hackpack
+mkdir -p research
+```
+
+Open the folder in your editor. Markdown files are plain text; you can also copy their content into your preferred document tool. Without terminal access, use GitHub's **Code → Download ZIP** option or copy just the templates you need. No tracker or integration is required.
+
+`research/` is a suggested local working folder and is ignored by Git in this toolkit. You can choose a different location, including a separate private repository. Keep actual research materials in storage appropriate to their audience; this kit's public repository is not a destination for participant data.
+
+## Your First Project and Trial
+1. Copy [project-brief.md](templates/project-brief.md) into a new project folder in your working location. Fill it in with your research purpose and context.
+2. When you are ready for a particular round of research, create a trial folder inside that project. Copy [trial-brief.md](templates/trial-brief.md), [trial-report.md](templates/trial-report.md), and the plan for your chosen method: [interview](templates/trial-plan-interview.md), [survey](templates/trial-plan-survey.md), or [user testing](templates/trial-plan-user-testing.md). Create an `artifacts/` folder there. In the trial brief, link to the project's brief.
+3. For an interview or user-test session, create `artifacts/session-01/` and copy [field-notes.md](templates/field-notes.md) there. Link it to the trial plan. Each observer can keep a separate notes file. Surveys can keep an export at the trial's artifact level instead.
+
+With an agent, request these as separate operations, supplying names, destinations, and your chosen method:
+
+```text
+Use skills/create-research-project/SKILL.md to create a project called community-support in my research workspace. Leave the research content blank.
+```
+
+```text
+Use skills/create-research-trial/SKILL.md to create an interview trial called interviews inside community-support. Leave the research content blank.
+```
+
+```text
+Use skills/create-research-session/SKILL.md to create session-01 in that interview trial, with a blank field-notes.md.
+```
+
+You can request survey or user-testing trials the same way. Workspace setup does not run these creation operations automatically. Examples contain invented answers; always copy blank templates for actual work.
+
+## How the Pieces Fit
+- **Project:** the research problem or area of inquiry. It can concern a product, several services, a platform, or something else entirely.
+- **Trial:** one bounded round of research within a project, with its own brief, plan, collected material, and report. Multiple trials can use different methods; no particular sequence is required.
+- **Artifacts:** the underlying material, such as field notes, transcripts, recordings, and survey exports. Sessions group material from one interview or user test. A survey does not need a folder per response. See [research artifacts](guides/research-artifacts.md).
+
+```text
+templates/                  Blank documents to copy
+  runbooks/                 Portable workflow templates
+    tasks/                  Instructions and completion criteria for each task
+examples/community-support/ Fictional project with three worked trials
+  interviews/               Brief, plan, report, and session field notes
+  survey/                   Brief, plan, report, and invented response data
+  user-testing/             Brief, plan, report, and session field notes
+guides/                     Guidance on arranging collected materials
+skills/                     Mechanical workspace, project, trial, and session setup
+.github/ISSUE_TEMPLATE/     GitHub implementation of the portable runbooks
+```
+
+Browse the [fictional project](examples/community-support/project-brief.md), then compare its [interview](examples/community-support/interviews/trial-brief.md), [survey](examples/community-support/survey/trial-brief.md), and [user-testing](examples/community-support/user-testing/trial-brief.md) trials. Each example document links back to its blank template. These are illustrations, not completed research or a required three-trial program.
+
+## Coordinate the Work
+Use the [project runbook](templates/runbooks/project-runbook.md) to establish the project and its brief, then the [trial runbook](templates/runbooks/trial-runbook.md) to organize planning, recruitment, data collection, and reporting. The task definitions preserve owners, review, revision, and handoffs.
+
+Markdown describes the workflow. Put actual assignments and status in the team's chosen tracker or working system, whether that is GitHub, Jira, Trello, Asana, a document, or something else. Adapt the definitions manually; the kit does not currently automate those transfers. The [GitHub issue forms](.github/ISSUE_TEMPLATE/) show one implementation and can be used in your own GitHub repository with Issues enabled.
+
+```mermaid
+flowchart TD
+    P[Project and project brief] --> PR[Team review, revision, and agreed stakeholder review]
+    PR --> T[Trial brief and method-specific plan]
+    T --> TR[Team review, revision, and agreed stakeholder review]
+    TR --> R[Recruitment and preparation]
+    R --> C[Sessions or survey response window]
+    C --> A[Artifacts and analysis]
+    A --> F[Report, team feedback, and stakeholder handoff]
+```
+
+Templates are prompts, not mandatory forms. Keep the review responsibilities and evidence links meaningful for your work. Existing [synthesis-method ideas](synthesis-methods.md) are available as additional reference; selecting and carrying out an analysis remains the researcher's responsibility.

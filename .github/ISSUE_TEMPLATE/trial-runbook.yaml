@@ -1,30 +1,39 @@
+---
 name: Trial Runbook
-description: High level checklist for starting a new trial.
-title:  "Create new research trial: {Project/Trial} "
-labels: ["research", "design", "product management"]
-assignees:
-  - octocat
+description: Organize one trial and assign its four work packages.
+title: 'Set up research trial: {Trial}'
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Brief description of research trials goals
-      placeholder:
-      value:
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Acceptance Criteria
-      description: You probably don't need to edit this at all.
-      placeholder:
-      value: |
-        - [ ] Create a [trial brief and plan issue](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign&template=trial-brief-and-plan.yaml&title=Write+new+project+brief%3A+%7BProject%7D+).
-        - [ ] Create a [recruitment and scheduling issue](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign&template=recruitment-and-scheduling.yaml&title=Recruit%2Fschedule+participants+for+%7BProject%2FTrial%7D+research).
-        - [ ] Create a [research sessions issue](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign&template=research-sessions.yaml&title=Conduct+%7BProject%2FTrial%7D+research+sessions+).
-        - [ ] Create a [synthesis and report issue](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign&template=synthesis-and-report.yaml&title=Synthesize+%7BProject%2FTrial%7D+research+and+compile+report+).
-        - [ ] Add all the above issues to the research project Epic.
-        - [ ] All tickets have been created and assigned
-    validations:
-      required: true
+- type: markdown
+  attributes:
+    value: GitHub adaptation of the [portable definition](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/trial-runbook.md). Assign an owner and reviewers in your own repository; choose any labels or board conventions your team uses. Documentation links point to the upstream toolkit; use your local versions if you have adapted them. Create related issues in the current repository using Trial Brief and Plan, Recruitment, Data Collection, and Synthesis and Report. Link all four to the project epic.
+- type: textarea
+  id: context
+  attributes:
+    label: Context and links
+    description: Name the project/trial, document location, related issues, owner, and reviewers. Keep private participant details in appropriate storage.
+  validations:
+    required: true
+- type: textarea
+  id: workflow
+  attributes:
+    label: Workflow and completion criteria
+    description: Adapt this workflow to the agreed responsibilities and method. Track progress here or in your chosen board.
+    value: |-
+      # Trial Runbook
+      Use this when the researcher chooses a new round of work within an existing project. Confirm the trial name, project, and chosen method.
+
+      ## Setup Checklist
+      - [ ] Create a trial folder with a blank brief, the selected method's plan, a report, and `artifacts/`, manually or with the trial-creation skill.
+      - [ ] Create the [trial brief and plan](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/trial-brief-and-plan.md) task.
+      - [ ] Create the [recruitment](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/recruitment.md) task, with scheduling for interviews/user tests or distribution preparation for a survey.
+      - [ ] Create the [data collection](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/data-collection.md) task, using sessions or a survey response window as appropriate.
+      - [ ] Create the [synthesis and report](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/synthesis-and-report.md) task.
+      - [ ] Group all four tasks under the project's grouping or epic. Link the trial folder and relevant documents from them.
+      - [ ] Assign owners and reviewers; record the handoffs and dependencies below. Check that everyone can find their next action.
+
+      ## Handoffs
+      The researcher drafts the brief and plan, requests team review, revises, and requests the agreed stakeholder review. Resolve required changes before proceeding with collection. Recruitment prepares the selected participants or distribution channel; collection follows the reviewed plan. Synthesis and reporting follow the available evidence, with team feedback and an agreed stakeholder handoff before completion. Return responsibility to the researcher when revisions are needed. Record a role as not applicable when the project's review arrangement does not use it.
+
+      The tasks describe the work; an agent copying templates does not perform or approve these stages.
+  validations:
+    required: true

@@ -1,36 +1,35 @@
-name: Research Project Brief
-description: Use this template when you are drafting a new research project brief.
-title:  "Write new project brief: {Project} "
-labels: ["research", "design",]
-assignees:
-  - octocat
+---
+name: Project Brief
+description: Draft and review a research project brief.
+title: 'Write project brief: {Project}'
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Leave this open for notes
-      placeholder:
-      value:
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Acceptance Criteria
-      description: You probably don't need to edit this at all.
-      placeholder:
-      value: |
-        - [ ] Create a new folder in cloud document groupware (Google Docs, Office365 etc).
-        - [ ] Write draft research project brief document, and share link in this issue as a comment.
-        - [ ] Solicit feedback from Team and move to "In Review" on Github project board and reassign to Product Manager.
+- type: markdown
+  attributes:
+    value: GitHub adaptation of the [portable definition](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/project-brief.md). Assign an owner and reviewers in your own repository; choose any labels or board conventions your team uses. Documentation links point to the upstream toolkit; use your local versions if you have adapted them.
+- type: textarea
+  id: context
+  attributes:
+    label: Context and links
+    description: Name the project/trial, document location, related issues, owner, and reviewers. Keep private participant details in appropriate storage.
+  validations:
+    required: true
+- type: textarea
+  id: workflow
+  attributes:
+    label: Workflow and completion criteria
+    description: Adapt this workflow to the agreed responsibilities and method. Track progress here or in your chosen board.
+    value: |-
+      # Write and Review the Project Brief
+      **Owner:** researcher. **Reviewers:** the team's chosen reviewers and relevant stakeholders.
 
-        *revision cycle*
+      ## Instructions and Completion Criteria
+      - [ ] Prepare a shared working document from the project-brief template and link it from the task. It may be Markdown or the team's chosen document format.
+      - [ ] Write the background, goals, intended use, assumptions, and timeframe. The researcher supplies the inquiry.
+      - [ ] Request team review and hand responsibility to the named reviewer. Record comments and requested changes.
+      - [ ] Return responsibility to the researcher for revisions; repeat review as needed and record team approval.
+      - [ ] Request the agreed stakeholder review, hand it to the named reviewer, and resolve requested revisions with the researcher.
+      - [ ] Record the agreed approval or why a review role does not apply, and link the final working brief from the project's grouping.
 
-        - [ ] Team review approved, reassign to Researcher, and move out of "In Review".
-        - [ ] Solicit feedback from stakeholders, move to "In Review" and reassign to stakeholder.
-
-        *revision cycle*
-
-        - [ ] Stakeholder review approved, and close.
-    validations:
-      required: true
+      **Document template:** `templates/project-brief.md` from the toolkit root.
+  validations:
+    required: true

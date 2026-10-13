@@ -1,20 +1,33 @@
-name: Research Epic
-description: Epic for organizing research project
-title:  "{Project/Trial} Epic"
-labels: ["research", "design", "product management", "epic"]
-assignees:
-  - octocat
+---
+name: Research Project Epic
+description: Group the project brief and related trial tasks.
+title: 'Research project: {Project}'
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Brief description of research project's overall purpose
-      placeholder:
-      value:
-    validations:
-      required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## Do not forget to link all relevant tickets back to this epic.
+- type: markdown
+  attributes:
+    value: GitHub adaptation of the [portable definition](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/epic.md). Assign an owner and reviewers in your own repository; choose any labels or board conventions your team uses. Documentation links point to the upstream toolkit; use your local versions if you have adapted them.
+- type: textarea
+  id: context
+  attributes:
+    label: Context and links
+    description: Name the project/trial, document location, related issues, owner, and reviewers. Keep private participant details in appropriate storage.
+  validations:
+    required: true
+- type: textarea
+  id: workflow
+  attributes:
+    label: Workflow and completion criteria
+    description: Adapt this workflow to the agreed responsibilities and method. Track progress here or in your chosen board.
+    value: |-
+      # Research Project Grouping / Epic
+      Use an epic, parent task, board grouping, or equivalent in the team's tracker.
+
+      ## Context
+      Record the project name, brief location, research lead, and relevant collaborators. Link the project brief and each trial's tasks here as they are created.
+
+      ## Completion Criteria
+      - [ ] The project's purpose, scope, and document location are visible to its team.
+      - [ ] Related work is grouped and has owners; review responsibilities are clear.
+      - [ ] At project completion, agreed trial outputs and unresolved follow-up work are linked and the research lead has confirmed the handoff.
+  validations:
+    required: true

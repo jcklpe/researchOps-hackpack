@@ -72,3 +72,6 @@ site/
 
 # Mac files
 .DS_Store
+
+# Suggested local research workspace; choose appropriate private storage.
+/research/

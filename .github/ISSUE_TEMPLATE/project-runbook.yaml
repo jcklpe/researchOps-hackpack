@@ -1,28 +1,34 @@
+---
 name: Project Runbook
-description: Use this template when starting a new UX research project. This will create a high-level checklist to guide you through building tickets for upcoming sprints.
-title:  "Create new research project: {Project} "
-labels: ["research", "design", "product management"]
-assignees:
-  - octocat
+description: Organize a new research project and assign its setup tasks.
+title: 'Set up research project: {Project}'
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Brief description of research project's overall purpose
-      placeholder:
-      value:
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Acceptance Criteria
-      description: You probably don't need to edit this at all.
-      placeholder:
-      value: |
-        - [ ] Create a research [Epic](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign%2Cproduct+management%2Cepic&template=epic.yaml&title=%7BProject%2FTrial%7D+Epic).
-        - [ ] Create a research project folder.
-        - [ ] Create [project brief issue](https://github.com/jcklpe/research-ops-hackpack/issues/new?assignees=octocat&labels=research%2Cdesign&template=project-brief.yaml&title=Write+new+project+brief%3A+%7BProject%7D+).
-        - [ ] All tickets have been created and assigned
-    validations:
-      required: true
+- type: markdown
+  attributes:
+    value: GitHub adaptation of the [portable definition](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/project-runbook.md). Assign an owner and reviewers in your own repository; choose any labels or board conventions your team uses. Documentation links point to the upstream toolkit; use your local versions if you have adapted them. Create related issues in the current repository using the Research Project Epic and Project Brief forms. Link them together; do not create your project issues in the upstream toolkit.
+- type: textarea
+  id: context
+  attributes:
+    label: Context and links
+    description: Name the project/trial, document location, related issues, owner, and reviewers. Keep private participant details in appropriate storage.
+  validations:
+    required: true
+- type: textarea
+  id: workflow
+  attributes:
+    label: Workflow and completion criteria
+    description: Adapt this workflow to the agreed responsibilities and method. Track progress here or in your chosen board.
+    value: |-
+      # Project Runbook
+      Use this when establishing a research project. Copy the tasks into the team's chosen working system and keep actual owners and status there. A project can span products, services, or teams.
+
+      ## Setup Checklist
+      - [ ] Establish the project's grouping or epic using the [epic task](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/epic.md).
+      - [ ] Create a project folder and blank [project brief](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/project-brief.md), manually or with the project-creation skill. Record its location in the grouping.
+      - [ ] Create the [project-brief task](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/project-brief.md) and associate it with the grouping.
+      - [ ] Assign each task an owner and agree who handles team and stakeholder review. For an individual project, record which responsibilities the researcher holds and whether external review applies.
+      - [ ] Verify that the owner can find the documents and the next action. Creating the tasks completes this runbook's setup, not the research work itself.
+
+      When the project brief is ready and a trial is chosen, use the [trial runbook](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/trial-runbook.md). Do not create a first trial merely because the project folder exists.
+  validations:
+    required: true

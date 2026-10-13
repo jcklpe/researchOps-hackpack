@@ -1,35 +1,35 @@
+---
 name: Trial Brief and Plan
-description: Use this template when you are drafting a new research trial brief and plan.
-title:  "Write new project brief: {Project} "
-labels: ["research", "design",]
-assignees:
-  - octocat
+description: Draft and review the trial brief and selected method plan.
+title: 'Write trial brief and plan: {Trial}'
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Leave this open for notes
-      placeholder:
-      value:
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: Acceptance Criteria
-      description: You probably don't need to edit this at all.
-      placeholder:
-      value: |
-        - [ ] Create a new folder in cloud document groupware (Google Docs, Office365 etc).
-        - [ ] Write draft research trial brief document, and share link in this issue as a comment.
-        - [ ] Write draft research trial plan document, and share link in this issue as a comment.
-        - [ ] Solicit feedback from Team and move to "In Review" on Github project board and reassign to Product Manager.
-          - *revision cycle*
+- type: markdown
+  attributes:
+    value: GitHub adaptation of the [portable definition](https://github.com/jcklpe/researchOps-hackpack/blob/main/templates/runbooks/tasks/trial-brief-and-plan.md). Assign an owner and reviewers in your own repository; choose any labels or board conventions your team uses. Documentation links point to the upstream toolkit; use your local versions if you have adapted them.
+- type: textarea
+  id: context
+  attributes:
+    label: Context and links
+    description: Name the project/trial, document location, related issues, owner, and reviewers. Keep private participant details in appropriate storage.
+  validations:
+    required: true
+- type: textarea
+  id: workflow
+  attributes:
+    label: Workflow and completion criteria
+    description: Adapt this workflow to the agreed responsibilities and method. Track progress here or in your chosen board.
+    value: |-
+      # Write and Review the Trial Brief and Plan
+      **Owner:** researcher. **Reviewers:** the team's chosen reviewers and relevant stakeholders.
 
-        - [ ] Team review approved, reassign to Researcher, and move out of "In Review".
-        - [ ] Solicit feedback from stakeholders, move to "In Review" and reassign to stakeholder.
-          - *revision cycle*
+      ## Instructions and Completion Criteria
+      - [ ] Link the parent project brief and the trial's working documents from the task.
+      - [ ] Write the trial brief and the plan for the researcher-selected method: interview, survey, or user testing. Explain the questions, participant selection, collection process, and intended use of the evidence.
+      - [ ] Request team review and hand responsibility to the named reviewer. Return requested revisions to the researcher, repeat as needed, and record approval.
+      - [ ] Request the agreed stakeholder review and hand it to the named reviewer. Return requested revisions to the researcher and record the outcome.
+      - [ ] Resolve required changes and identify the reviewed versions before collection begins. For a survey, include review/piloting of the questionnaire and response options; for sessions, include the guide or tasks and materials.
+      - [ ] Hand the reviewed plan to the recruitment and collection owners. Record any review role that does not apply.
 
-        - [ ] Stakeholder review approved, and close.
-    validations:
-      required: true
+      **Document templates:** `templates/trial-brief.md` and the selected `templates/trial-plan-*.md` from the toolkit root.
+  validations:
+    required: true
